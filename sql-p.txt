@@ -1,0 +1,826 @@
+login as: vagrant
+vagrant@192.168.0.107's password:
+Last login: Sun Apr  5 11:22:42 2020
+[vagrant@client1 ~]$ sudo su
+[root@client1 vagrant]# mysql -V
+bash: mysql: command not found
+[root@client1 vagrant]# yum -y install mariadb-server mariadb
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: centos.excellmedia.net
+ * epel: epel.mirror.angkasa.id
+ * extras: centos.excellmedia.net
+ * updates: centos.excellmedia.net
+Resolving Dependencies
+--> Running transaction check
+---> Package mariadb.x86_64 1:5.5.64-1.el7 will be installed
+---> Package mariadb-server.x86_64 1:5.5.64-1.el7 will be installed
+--> Processing Dependency: perl-DBI for package: 1:mariadb-server-5.5.64-1.el7.x                                                 86_64
+--> Processing Dependency: perl-DBD-MySQL for package: 1:mariadb-server-5.5.64-1                                                 .el7.x86_64
+--> Processing Dependency: perl(DBI) for package: 1:mariadb-server-5.5.64-1.el7.                                                 x86_64
+--> Processing Dependency: libaio.so.1(LIBAIO_0.4)(64bit) for package: 1:mariadb                                                 -server-5.5.64-1.el7.x86_64
+--> Processing Dependency: libaio.so.1(LIBAIO_0.1)(64bit) for package: 1:mariadb                                                 -server-5.5.64-1.el7.x86_64
+--> Processing Dependency: libaio.so.1()(64bit) for package: 1:mariadb-server-5.                                                 5.64-1.el7.x86_64
+--> Running transaction check
+---> Package libaio.x86_64 0:0.3.109-13.el7 will be installed
+---> Package perl-DBD-MySQL.x86_64 0:4.023-6.el7 will be installed
+---> Package perl-DBI.x86_64 0:1.627-4.el7 will be installed
+--> Processing Dependency: perl(RPC::PlServer) >= 0.2001 for package: perl-DBI-1                                                 .627-4.el7.x86_64
+--> Processing Dependency: perl(RPC::PlClient) >= 0.2000 for package: perl-DBI-1                                                 .627-4.el7.x86_64
+--> Running transaction check
+---> Package perl-PlRPC.noarch 0:0.2020-14.el7 will be installed
+--> Processing Dependency: perl(Net::Daemon) >= 0.13 for package: perl-PlRPC-0.2                                                 020-14.el7.noarch
+--> Processing Dependency: perl(Net::Daemon::Test) for package: perl-PlRPC-0.202                                                 0-14.el7.noarch
+--> Processing Dependency: perl(Net::Daemon::Log) for package: perl-PlRPC-0.2020                                                 -14.el7.noarch
+--> Processing Dependency: perl(Compress::Zlib) for package: perl-PlRPC-0.2020-1                                                 4.el7.noarch
+--> Running transaction check
+---> Package perl-IO-Compress.noarch 0:2.061-2.el7 will be installed
+--> Processing Dependency: perl(Compress::Raw::Zlib) >= 2.061 for package: perl-                                                 IO-Compress-2.061-2.el7.noarch
+--> Processing Dependency: perl(Compress::Raw::Bzip2) >= 2.061 for package: perl                                                 -IO-Compress-2.061-2.el7.noarch
+---> Package perl-Net-Daemon.noarch 0:0.48-5.el7 will be installed
+--> Running transaction check
+---> Package perl-Compress-Raw-Bzip2.x86_64 0:2.061-3.el7 will be installed
+---> Package perl-Compress-Raw-Zlib.x86_64 1:2.061-4.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package                      Arch        Version               Repository
+                                                                           Size
+================================================================================
+Installing:
+ mariadb                      x86_64      1:5.5.64-1.el7        base      8.7 M
+ mariadb-server               x86_64      1:5.5.64-1.el7        base       11 M
+Installing for dependencies:
+ libaio                       x86_64      0.3.109-13.el7        base       24 k
+ perl-Compress-Raw-Bzip2      x86_64      2.061-3.el7           base       32 k
+ perl-Compress-Raw-Zlib       x86_64      1:2.061-4.el7         base       57 k
+ perl-DBD-MySQL               x86_64      4.023-6.el7           base      140 k
+ perl-DBI                     x86_64      1.627-4.el7           base      802 k
+ perl-IO-Compress             noarch      2.061-2.el7           base      260 k
+ perl-Net-Daemon              noarch      0.48-5.el7            base       51 k
+ perl-PlRPC                   noarch      0.2020-14.el7         base       36 k
+
+Transaction Summary
+================================================================================
+Install  2 Packages (+8 Dependent packages)
+
+Total download size: 21 M
+Installed size: 110 M
+Downloading packages:
+(1/10): libaio-0.3.109-13.el7.x86_64.rpm                   |  24 kB   00:00
+(2/10): mariadb-5.5.64-1.el7.x86_64.rpm                    | 8.7 MB   00:07
+(3/10): perl-Compress-Raw-Bzip2-2.061-3.el7.x86_64.rpm     |  32 kB   00:00
+(4/10): perl-Compress-Raw-Zlib-2.061-4.el7.x86_64.rpm      |  57 kB   00:00
+(5/10): perl-DBD-MySQL-4.023-6.el7.x86_64.rpm              | 140 kB   00:00
+(6/10): perl-DBI-1.627-4.el7.x86_64.rpm                    | 802 kB   00:00
+(7/10): perl-IO-Compress-2.061-2.el7.noarch.rpm            | 260 kB   00:00
+(8/10): perl-Net-Daemon-0.48-5.el7.noarch.rpm              |  51 kB   00:00
+(9/10): perl-PlRPC-0.2020-14.el7.noarch.rpm                |  36 kB   00:00
+(10/10): mariadb-server-5.5.64-1.el7.x86_64.rpm            |  11 MB   00:08
+--------------------------------------------------------------------------------
+Total                                              2.5 MB/s |  21 MB  00:08
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : libaio-0.3.109-13.el7.x86_64                                1/10
+  Installing : 1:perl-Compress-Raw-Zlib-2.061-4.el7.x86_64                 2/10
+  Installing : 1:mariadb-5.5.64-1.el7.x86_64                               3/10
+  Installing : perl-Net-Daemon-0.48-5.el7.noarch                           4/10
+  Installing : perl-Compress-Raw-Bzip2-2.061-3.el7.x86_64                  5/10
+  Installing : perl-IO-Compress-2.061-2.el7.noarch                         6/10
+  Installing : perl-PlRPC-0.2020-14.el7.noarch                             7/10
+  Installing : perl-DBI-1.627-4.el7.x86_64                                 8/10
+  Installing : perl-DBD-MySQL-4.023-6.el7.x86_64                           9/10
+  Installing : 1:mariadb-server-5.5.64-1.el7.x86_64                       10/10
+  Verifying  : perl-Compress-Raw-Bzip2-2.061-3.el7.x86_64                  1/10
+  Verifying  : perl-Net-Daemon-0.48-5.el7.noarch                           2/10
+  Verifying  : 1:mariadb-5.5.64-1.el7.x86_64                               3/10
+  Verifying  : perl-DBD-MySQL-4.023-6.el7.x86_64                           4/10
+  Verifying  : perl-IO-Compress-2.061-2.el7.noarch                         5/10
+  Verifying  : 1:perl-Compress-Raw-Zlib-2.061-4.el7.x86_64                 6/10
+  Verifying  : 1:mariadb-server-5.5.64-1.el7.x86_64                        7/10
+  Verifying  : perl-DBI-1.627-4.el7.x86_64                                 8/10
+  Verifying  : libaio-0.3.109-13.el7.x86_64                                9/10
+  Verifying  : perl-PlRPC-0.2020-14.el7.noarch                            10/10
+
+Installed:
+  mariadb.x86_64 1:5.5.64-1.el7       mariadb-server.x86_64 1:5.5.64-1.el7
+
+Dependency Installed:
+  libaio.x86_64 0:0.3.109-13.el7
+  perl-Compress-Raw-Bzip2.x86_64 0:2.061-3.el7
+  perl-Compress-Raw-Zlib.x86_64 1:2.061-4.el7
+  perl-DBD-MySQL.x86_64 0:4.023-6.el7
+  perl-DBI.x86_64 0:1.627-4.el7
+  perl-IO-Compress.noarch 0:2.061-2.el7
+  perl-Net-Daemon.noarch 0:0.48-5.el7
+  perl-PlRPC.noarch 0:0.2020-14.el7
+
+Complete!
+[root@client1 vagrant]# mysql -V
+mysql  Ver 15.1 Distrib 5.5.64-MariaDB, for Linux (x86_64) using readline 5.1
+[root@client1 vagrant]# mysql
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/lib                                                 /mysql/mysql.sock' (2)
+[root@client1 vagrant]# systemctl start mariadb
+[root@client1 vagrant]# systemctl enable mariadb
+Created symlink from /etc/systemd/system/multi-user.target.wants/mariadb.service                                                  to /usr/lib/systemd/system/mariadb.service.
+[root@client1 vagrant]# systemctl status mariadb
+● mariadb.service - MariaDB database server
+   Loaded: loaded (/usr/lib/systemd/system/mariadb.service; enabled; vendor pres                                                 et: disabled)
+   Active: active (running) since Sat 2020-04-11 09:26:53 UTC; 22s ago
+ Main PID: 1226 (mysqld_safe)
+   CGroup: /system.slice/mariadb.service
+           ├─1226 /bin/sh /usr/bin/mysqld_safe --basedir=/usr
+           └─1388 /usr/libexec/mysqld --basedir=/usr --datadir=/var/lib/mysql...
+
+Apr 11 09:26:51 client1 mariadb-prepare-db-dir[1140]: Alternatively you can run:
+Apr 11 09:26:51 client1 mariadb-prepare-db-dir[1140]: '/usr/libexec/mysql_sec...
+Apr 11 09:26:51 client1 mariadb-prepare-db-dir[1140]: which will also give yo...
+Apr 11 09:26:51 client1 mariadb-prepare-db-dir[1140]: databases and anonymous...
+Apr 11 09:26:51 client1 mariadb-prepare-db-dir[1140]: strongly recommended fo...
+Apr 11 09:26:51 client1 mariadb-prepare-db-dir[1140]: See the MariaDB Knowled...
+Apr 11 09:26:51 client1 mariadb-prepare-db-dir[1140]: MySQL manual for more i...
+Apr 11 09:26:51 client1 mysqld_safe[1226]: 200411 09:26:51 mysqld_safe Loggi....
+Apr 11 09:26:51 client1 mysqld_safe[1226]: 200411 09:26:51 mysqld_safe Start...l
+Apr 11 09:26:53 client1 systemd[1]: Started MariaDB database server.
+Hint: Some lines were ellipsized, use -l to show in full.
+[root@client1 vagrant]# mysql_secure_installation
+
+NOTE: RUNNING ALL PARTS OF THIS SCRIPT IS RECOMMENDED FOR ALL MariaDB
+      SERVERS IN PRODUCTION USE!  PLEASE READ EACH STEP CAREFULLY!
+
+In order to log into MariaDB to secure it, we'll need the current
+password for the root user.  If you've just installed MariaDB, and
+you haven't set the root password yet, the password will be blank,
+so you should just press enter here.
+
+Enter current password for root (enter for none):
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: Y                                                 ES)
+Enter current password for root (enter for none):
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: Y                                                 ES)
+Enter current password for root (enter for none):
+OK, successfully used password, moving on...
+
+Setting the root password ensures that nobody can log into the MariaDB
+root user without the proper authorisation.
+
+Set root password? [Y/n] Y
+New password:
+Re-enter new password:
+Password updated successfully!
+Reloading privilege tables..
+ ... Success!
+
+
+By default, a MariaDB installation has an anonymous user, allowing anyone
+to log into MariaDB without having to have a user account created for
+them.  This is intended only for testing, and to make the installation
+go a bit smoother.  You should remove them before moving into a
+production environment.
+
+Remove anonymous users? [Y/n] Y
+ ... Success!
+
+Normally, root should only be allowed to connect from 'localhost'.  This
+ensures that someone cannot guess at the root password from the network.
+
+Disallow root login remotely? [Y/n] Y
+ ... Success!
+
+By default, MariaDB comes with a database named 'test' that anyone can
+access.  This is also intended only for testing, and should be removed
+before moving into a production environment.
+
+Remove test database and access to it? [Y/n] n
+ ... skipping.
+
+Reloading the privilege tables will ensure that all changes made so far
+will take effect immediately.
+
+Reload privilege tables now? [Y/n] Y
+ ... Success!
+
+Cleaning up...
+
+All done!  If you've completed all of the above steps, your MariaDB
+installation should now be secure.
+
+Thanks for using MariaDB!
+[root@client1 vagrant]# mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 10
+Server version: 5.5.64-MariaDB MariaDB Server
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| test               |
++--------------------+
+4 rows in set (0.00 sec)
+
+MariaDB [(none)]> create database tdc_db;
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| tdc_db             |
+| test               |
++--------------------+
+5 rows in set (0.00 sec)
+
+MariaDB [(none)]> use tdc_db;
+Database changed
+MariaDB [tdc_db]> create table stud(stud_id integer(30),stud_fnm varchar(40),stu                                                 d_lnm varchar(60),stud_marks integer(50));
+Query OK, 0 rows affected (0.00 sec)
+
+MariaDB [tdc_db]> desc stud;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| stud_id    | int(30)     | YES  |     | NULL    |       |
+| stud_fnm   | varchar(40) | YES  |     | NULL    |       |
+| stud_lnm   | varchar(60) | YES  |     | NULL    |       |
+| stud_marks | int(50)     | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+MariaDB [tdc_db]> select * from stud;
+Empty set (0.00 sec)
+
+MariaDB [tdc_db]> insert into stud values(101,'shikha','rohit',88);
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [tdc_db]> select * from stud;
++---------+----------+----------+------------+
+| stud_id | stud_fnm | stud_lnm | stud_marks |
++---------+----------+----------+------------+
+|     101 | shikha   | rohit    |         88 |
++---------+----------+----------+------------+
+1 row in set (0.00 sec)
+
+MariaDB [tdc_db]> insert into stud values(102,'Gayatri','Waghmare',78);
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [tdc_db]> insert into stud values(103,'Seema','Ahuja',67);
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [tdc_db]> insert into stud values(104,'Gauri','Athavale',90);
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [tdc_db]> insert into stud values(105,'Pankaj','Sonar',80);
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [tdc_db]> select * from stud;
++---------+----------+----------+------------+
+| stud_id | stud_fnm | stud_lnm | stud_marks |
++---------+----------+----------+------------+
+|     101 | shikha   | rohit    |         88 |
+|     102 | Gayatri  | Waghmare |         78 |
+|     103 | Seema    | Ahuja    |         67 |
+|     104 | Gauri    | Athavale |         90 |
+|     105 | Pankaj   | Sonar    |         80 |
++---------+----------+----------+------------+
+5 rows in set (0.00 sec)
+
+MariaDB [tdc_db]> commit;
+Query OK, 0 rows affected (0.00 sec)
+
+MariaDB [tdc_db]> select * from stud where stud_fnm='Gayatri';
++---------+----------+----------+------------+
+| stud_id | stud_fnm | stud_lnm | stud_marks |
++---------+----------+----------+------------+
+|     102 | Gayatri  | Waghmare |         78 |
++---------+----------+----------+------------+
+1 row in set (0.00 sec)
+
+MariaDB [tdc_db]> select * from stud where stud_marks=80;
++---------+----------+----------+------------+
+| stud_id | stud_fnm | stud_lnm | stud_marks |
++---------+----------+----------+------------+
+|     105 | Pankaj   | Sonar    |         80 |
++---------+----------+----------+------------+
+1 row in set (0.00 sec)
+
+MariaDB [tdc_db]> alter table stud
+    -> add address varchar(60) not null;
+Query OK, 5 rows affected (0.01 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+MariaDB [tdc_db]> select * from stud;
++---------+----------+----------+------------+---------+
+| stud_id | stud_fnm | stud_lnm | stud_marks | address |
++---------+----------+----------+------------+---------+
+|     101 | shikha   | rohit    |         88 |         |
+|     102 | Gayatri  | Waghmare |         78 |         |
+|     103 | Seema    | Ahuja    |         67 |         |
+|     104 | Gauri    | Athavale |         90 |         |
+|     105 | Pankaj   | Sonar    |         80 |         |
++---------+----------+----------+------------+---------+
+5 rows in set (0.00 sec)
+
+MariaDB [tdc_db]> desc stud;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| stud_id    | int(30)     | YES  |     | NULL    |       |
+| stud_fnm   | varchar(40) | YES  |     | NULL    |       |
+| stud_lnm   | varchar(60) | YES  |     | NULL    |       |
+| stud_marks | int(50)     | YES  |     | NULL    |       |
+| address    | varchar(60) | NO   |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+MariaDB [tdc_db]> update stud
+    -> set address='Pune'
+    -> where stud_id=104;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [tdc_db]> select * from stud;
++---------+----------+----------+------------+---------+
+| stud_id | stud_fnm | stud_lnm | stud_marks | address |
++---------+----------+----------+------------+---------+
+|     101 | shikha   | rohit    |         88 |         |
+|     102 | Gayatri  | Waghmare |         78 |         |
+|     103 | Seema    | Ahuja    |         67 |         |
+|     104 | Gauri    | Athavale |         90 | Pune    |
+|     105 | Pankaj   | Sonar    |         80 |         |
++---------+----------+----------+------------+---------+
+5 rows in set (0.00 sec)
+
+MariaDB [tdc_db]> select * from stud where stud_fnm order by;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that                                                  corresponds to your MariaDB server version for the right syntax to use near '' a                                                 t line 1
+MariaDB [tdc_db]> select * from stud stud_fnm order by;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that                                                  corresponds to your MariaDB server version for the right syntax to use near '' a                                                 t line 1
+MariaDB [tdc_db]> select * from stud order by stud_fnm;
++---------+----------+----------+------------+---------+
+| stud_id | stud_fnm | stud_lnm | stud_marks | address |
++---------+----------+----------+------------+---------+
+|     104 | Gauri    | Athavale |         90 | Pune    |
+|     102 | Gayatri  | Waghmare |         78 |         |
+|     105 | Pankaj   | Sonar    |         80 |         |
+|     103 | Seema    | Ahuja    |         67 |         |
+|     101 | shikha   | rohit    |         88 |         |
++---------+----------+----------+------------+---------+
+5 rows in set (0.00 sec)
+
+MariaDB [tdc_db]> select * from stud order by stud_fnm desc;
++---------+----------+----------+------------+---------+
+| stud_id | stud_fnm | stud_lnm | stud_marks | address |
++---------+----------+----------+------------+---------+
+|     101 | shikha   | rohit    |         88 |         |
+|     103 | Seema    | Ahuja    |         67 |         |
+|     105 | Pankaj   | Sonar    |         80 |         |
+|     102 | Gayatri  | Waghmare |         78 |         |
+|     104 | Gauri    | Athavale |         90 | Pune    |
++---------+----------+----------+------------+---------+
+5 rows in set (0.00 sec)
+
+MariaDB [tdc_db]> select * from stud
+    -> where stud_lnm IN('Pankaj','Seema');
+Empty set (0.00 sec)
+
+MariaDB [tdc_db]> select * from stud where stud_lnm IN('rohit','Sonar');
++---------+----------+----------+------------+---------+
+| stud_id | stud_fnm | stud_lnm | stud_marks | address |
++---------+----------+----------+------------+---------+
+|     101 | shikha   | rohit    |         88 |         |
+|     105 | Pankaj   | Sonar    |         80 |         |
++---------+----------+----------+------------+---------+
+2 rows in set (0.00 sec)
+
+MariaDB [tdc_db]> select * from stud where stud_lnm NOT IN('rohit','Sonar');
++---------+----------+----------+------------+---------+
+| stud_id | stud_fnm | stud_lnm | stud_marks | address |
++---------+----------+----------+------------+---------+
+|     102 | Gayatri  | Waghmare |         78 |         |
+|     103 | Seema    | Ahuja    |         67 |         |
+|     104 | Gauri    | Athavale |         90 | Pune    |
++---------+----------+----------+------------+---------+
+3 rows in set (0.00 sec)
+
+MariaDB [tdc_db]> select * from stud where stud_id between 103 AND 105;
++---------+----------+----------+------------+---------+
+| stud_id | stud_fnm | stud_lnm | stud_marks | address |
++---------+----------+----------+------------+---------+
+|     103 | Seema    | Ahuja    |         67 |         |
+|     104 | Gauri    | Athavale |         90 | Pune    |
+|     105 | Pankaj   | Sonar    |         80 |         |
++---------+----------+----------+------------+---------+
+3 rows in set (0.00 sec)
+
+MariaDB [tdc_db]> select * from stud where stud_id not between 103 AND 105;
++---------+----------+----------+------------+---------+
+| stud_id | stud_fnm | stud_lnm | stud_marks | address |
++---------+----------+----------+------------+---------+
+|     101 | shikha   | rohit    |         88 |         |
+|     102 | Gayatri  | Waghmare |         78 |         |
++---------+----------+----------+------------+---------+
+2 rows in set (0.00 sec)
+
+MariaDB [tdc_db]> select count(stud_fnm)
+    -> from stud;
++-----------------+
+| count(stud_fnm) |
++-----------------+
+|               5 |
++-----------------+
+1 row in set (0.00 sec)
+
+MariaDB [tdc_db]> create table class(id integer(100),name varchar(100),address varchar(100));                                    Query OK, 0 rows affected (0.01 sec)
+
+MariaDB [tdc_db]> create table class_info(id integer(100),address varchar(100));
+Query OK, 0 rows affected (0.01 sec)
+
+MariaDB [tdc_db]> desc class;
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| id      | int(100)     | YES  |     | NULL    |       |
+| name    | varchar(100) | YES  |     | NULL    |       |
+| address | varchar(100) | YES  |     | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+MariaDB [tdc_db]> desc class_info;
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| id      | int(100)     | YES  |     | NULL    |       |
+| address | varchar(100) | YES  |     | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+MariaDB [tdc_db]> insert into class values(1,'shikha','damoh');
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [tdc_db]> insert into class values(2,'reva','chiplun');
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [tdc_db]> insert into class values(4,'pankaj','kothrud');
+Query OK, 1 row affected (0.01 sec)
+
+MariaDB [tdc_db]> select * from class;
++------+--------+---------+
+| id   | name   | address |
++------+--------+---------+
+|    1 | shikha | damoh   |
+|    2 | reva   | chiplun |
+|    4 | pankaj | kothrud |
++------+--------+---------+
+3 rows in set (0.00 sec)
+
+MariaDB [tdc_db]> insert into class_info values(1,'delhi');
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [tdc_db]> insert into class_info values(2,'pune');
+Query OK, 1 row affected (0.01 sec)
+
+MariaDB [tdc_db]> insert into class_info values(3,'mumbai');
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [tdc_db]> select * from class_info;
++------+---------+
+| id   | address |
++------+---------+
+|    1 | delhi   |
+|    2 | pune    |
+|    3 | mumbai  |
++------+---------+
+3 rows in set (0.00 sec)
+
+MariaDB [tdc_db]> select * from class cross join class_info;
++------+--------+---------+------+---------+
+| id   | name   | address | id   | address |
++------+--------+---------+------+---------+
+|    1 | shikha | damoh   |    1 | delhi   |
+|    2 | reva   | chiplun |    1 | delhi   |
+|    4 | pankaj | kothrud |    1 | delhi   |
+|    1 | shikha | damoh   |    2 | pune    |
+|    2 | reva   | chiplun |    2 | pune    |
+|    4 | pankaj | kothrud |    2 | pune    |
+|    1 | shikha | damoh   |    3 | mumbai  |
+|    2 | reva   | chiplun |    3 | mumbai  |
+|    4 | pankaj | kothrud |    3 | mumbai  |
++------+--------+---------+------+---------+
+9 rows in set (0.00 sec)
+
+MariaDB [tdc_db]> desc class;
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| id      | int(100)     | YES  |     | NULL    |       |
+| name    | varchar(100) | YES  |     | NULL    |       |
+| address | varchar(100) | YES  |     | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+MariaDB [tdc_db]> desc class_info;
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| id      | int(100)     | YES  |     | NULL    |       |
+| address | varchar(100) | YES  |     | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+MariaDB [tdc_db]> alter table class
+    -> drop column address;
+Query OK, 3 rows affected (0.01 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+MariaDB [tdc_db]> select * from class;
++------+--------+
+| id   | name   |
++------+--------+
+|    1 | shikha |
+|    2 | reva   |
+|    4 | pankaj |
++------+--------+
+3 rows in set (0.00 sec)
+
+MariaDB [tdc_db]> select * from class cross join class_info;
++------+--------+------+---------+
+| id   | name   | id   | address |
++------+--------+------+---------+
+|    1 | shikha |    1 | delhi   |
+|    2 | reva   |    1 | delhi   |
+|    4 | pankaj |    1 | delhi   |
+|    1 | shikha |    2 | pune    |
+|    2 | reva   |    2 | pune    |
+|    4 | pankaj |    2 | pune    |
+|    1 | shikha |    3 | mumbai  |
+|    2 | reva   |    3 | mumbai  |
+|    4 | pankaj |    3 | mumbai  |
++------+--------+------+---------+
+9 rows in set (0.00 sec)
+
+MariaDB [tdc_db]> select * from class
+    -> cross join class_info
+    -> where class.id=class_info.id;
++------+--------+------+---------+
+| id   | name   | id   | address |
++------+--------+------+---------+
+|    1 | shikha |    1 | delhi   |
+|    2 | reva   |    2 | pune    |
++------+--------+------+---------+
+2 rows in set (0.00 sec)
+
+MariaDB [tdc_db]> select * from class;
++------+--------+
+| id   | name   |
++------+--------+
+|    1 | shikha |
+|    2 | reva   |
+|    4 | pankaj |
++------+--------+
+3 rows in set (0.00 sec)
+
+MariaDB [tdc_db]> select * from class_info;
++------+---------+
+| id   | address |
++------+---------+
+|    1 | delhi   |
+|    2 | pune    |
+|    3 | mumbai  |
++------+---------+
+3 rows in set (0.00 sec)
+
+MariaDB [tdc_db]> insert into class values(5,'sam');
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [tdc_db]> select * from class;
++------+--------+
+| id   | name   |
++------+--------+
+|    1 | shikha |
+|    2 | reva   |
+|    4 | pankaj |
+|    5 | sam    |
++------+--------+
+4 rows in set (0.00 sec)
+
+MariaDB [tdc_db]> select * from class_info;
++------+---------+
+| id   | address |
++------+---------+
+|    1 | delhi   |
+|    2 | pune    |
+|    3 | mumbai  |
++------+---------+
+3 rows in set (0.00 sec)
+
+MariaDB [tdc_db]> select * from class
+    -> cross join class_info
+    -> where class.id=class_info.id;
++------+--------+------+---------+
+| id   | name   | id   | address |
++------+--------+------+---------+
+|    1 | shikha |    1 | delhi   |
+|    2 | reva   |    2 | pune    |
++------+--------+------+---------+
+2 rows in set (0.00 sec)
+
+MariaDB [tdc_db]> select * from class cross join class_info;
++------+--------+------+---------+
+| id   | name   | id   | address |
++------+--------+------+---------+
+|    1 | shikha |    1 | delhi   |
+|    1 | shikha |    2 | pune    |
+|    1 | shikha |    3 | mumbai  |
+|    2 | reva   |    1 | delhi   |
+|    2 | reva   |    2 | pune    |
+|    2 | reva   |    3 | mumbai  |
+|    4 | pankaj |    1 | delhi   |
+|    4 | pankaj |    2 | pune    |
+|    4 | pankaj |    3 | mumbai  |
+|    5 | sam    |    1 | delhi   |
+|    5 | sam    |    2 | pune    |
+|    5 | sam    |    3 | mumbai  |
++------+--------+------+---------+
+12 rows in set (0.00 sec)
+
+MariaDB [tdc_db]> insert into class_info values(3,'madurai');
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [tdc_db]> select * from class;
++------+--------+
+| id   | name   |
++------+--------+
+|    1 | shikha |
+|    2 | reva   |
+|    4 | pankaj |
+|    5 | sam    |
++------+--------+
+4 rows in set (0.00 sec)
+
+MariaDB [tdc_db]> select * from class_info;
++------+---------+
+| id   | address |
++------+---------+
+|    1 | delhi   |
+|    2 | pune    |
+|    3 | mumbai  |
+|    3 | madurai |
++------+---------+
+4 rows in set (0.00 sec)
+
+MariaDB [tdc_db]> select * from class inner join class_info where
+    -> class.id=class_info.id;
++------+--------+------+---------+
+| id   | name   | id   | address |
++------+--------+------+---------+
+|    1 | shikha |    1 | delhi   |
+|    2 | reva   |    2 | pune    |
++------+--------+------+---------+
+2 rows in set (0.00 sec)
+
+MariaDB [tdc_db]> select * from clas natural join class_info;
+ERROR 1146 (42S02): Table 'tdc_db.clas' doesn't exist
+MariaDB [tdc_db]> select * from class natural join class_info;
++------+--------+---------+
+| id   | name   | address |
++------+--------+---------+
+|    1 | shikha | delhi   |
+|    2 | reva   | pune    |
++------+--------+---------+
+2 rows in set (0.00 sec)
+
+MariaDB [tdc_db]> desc class;
++-------+--------------+------+-----+---------+-------+
+| Field | Type         | Null | Key | Default | Extra |
++-------+--------------+------+-----+---------+-------+
+| id    | int(100)     | YES  |     | NULL    |       |
+| name  | varchar(100) | YES  |     | NULL    |       |
++-------+--------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+MariaDB [tdc_db]> desc class_info;
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| id      | int(100)     | YES  |     | NULL    |       |
+| address | varchar(100) | YES  |     | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+MariaDB [tdc_db]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| tdc_db             |
+| test               |
++--------------------+
+5 rows in set (0.00 sec)
+
+MariaDB [tdc_db]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| tdc_db             |
+| test               |
++--------------------+
+5 rows in set (0.00 sec)
+
+MariaDB [tdc_db]> select * from class left outer join class_info on (class.id=class_info.id);
++------+--------+------+---------+
+| id   | name   | id   | address |
++------+--------+------+---------+
+|    1 | shikha |    1 | delhi   |
+|    2 | reva   |    2 | pune    |
+|    4 | pankaj | NULL | NULL    |
+|    5 | sam    | NULL | NULL    |
++------+--------+------+---------+
+4 rows in set (0.00 sec)
+
+MariaDB [tdc_db]> select * from class;
++------+--------+
+| id   | name   |
++------+--------+
+|    1 | shikha |
+|    2 | reva   |
+|    4 | pankaj |
+|    5 | sam    |
++------+--------+
+4 rows in set (0.00 sec)
+
+MariaDB [tdc_db]> select * from class_info;
++------+---------+
+| id   | address |
++------+---------+
+|    1 | delhi   |
+|    2 | pune    |
+|    3 | mumbai  |
+|    3 | madurai |
++------+---------+
+4 rows in set (0.00 sec)
+
+MariaDB [tdc_db]> select * from class_info left outer join class on (class_inof.id=class);
+ERROR 1054 (42S22): Unknown column 'class_inof.id' in 'on clause'
+MariaDB [tdc_db]> select * from class_info left outer join class on (class_info.id=class);
+ERROR 1054 (42S22): Unknown column 'class' in 'on clause'
+MariaDB [tdc_db]> select * from class_info left outer join class on (class_info.id=class.id);
++------+---------+------+--------+
+| id   | address | id   | name   |
++------+---------+------+--------+
+|    1 | delhi   |    1 | shikha |
+|    2 | pune    |    2 | reva   |
+|    3 | mumbai  | NULL | NULL   |
+|    3 | madurai | NULL | NULL   |
++------+---------+------+--------+
+4 rows in set (0.00 sec)
+
+MariaDB [tdc_db]> select * from class right outer join class_info on(class.id=class_info.id);
++------+--------+------+---------+
+| id   | name   | id   | address |
++------+--------+------+---------+
+|    1 | shikha |    1 | delhi   |
+|    2 | reva   |    2 | pune    |
+| NULL | NULL   |    3 | mumbai  |
+| NULL | NULL   |    3 | madurai |
++------+--------+------+---------+
+4 rows in set (0.00 sec)
+
+MariaDB [tdc_db]> select * from class full outer join class_info on(class.id=class_info.id);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'outer join class_info on(class.id=class_info.id)' at line 1
+MariaDB [tdc_db]> select * from class
+    -> left join class_info on class.id=class_info.id
+    -> union
+    -> select * from class
+    -> right join class_info on class.id=class_info.id;
++------+--------+------+---------+
+| id   | name   | id   | address |
++------+--------+------+---------+
+|    1 | shikha |    1 | delhi   |
+|    2 | reva   |    2 | pune    |
+|    4 | pankaj | NULL | NULL    |
+|    5 | sam    | NULL | NULL    |
+| NULL | NULL   |    3 | mumbai  |
+| NULL | NULL   |    3 | madurai |
++------+--------+------+---------+
+6 rows in set (0.00 sec)
+
+MariaDB [tdc_db]>
