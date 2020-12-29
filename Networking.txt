@@ -1,0 +1,136 @@
+networking 
+it is a connection between two or more machine to communicate with each other.
+
+
+networking concepts
+
+nic(network interface card or controller)---lan adapter,n/w adapter
+
+computer to computer connects with network (hardware component)
+
+each nic will be having a unique mac address(media access control address)
+
+to avoid the conflicts between same nic adapters or lan adapters.
+
+in linux these nic adapters is represented by the word
+
+"eth0"
+
+e.g.
+
+if there are two ethernet adapters it will be denoted by eth0,eth1
+
+
+
+media
+medium via which two different computer's nic card will be connected.
+media is a  cable
+e.g.
+rj45,cat5,cat6
+
+
+protocol
+
+rules and regulations for communication between network devices.
+
+
+packet switching tehniques  (to send and receive messages in the form packets)
+
+tcp/ip(transmission control protocol over internet protocol)
+connection oriented
+reliable 
+acknowledgement will be sent/received)
+6
+http,ftp,smtp uses tcp
+
+udp(user datagram protocol)
+connectionless
+non reliable
+no acknowledgement
+17
+dns,dhcp uses udp
+
+
+ip address
+
+(phone number) unique
+
+
+ip address classes
+subnet mask
+gateway
+
+
+
+
+ip address classes
+
+A,B,C,D,E
+
+
+class 	start 		end 			default subnet mask 	cidr
+A	0.0.0.0		127.255.255.255		255.0.0.0		/8
+B	128.0.0.0	191.255.255.255		255.255.0.0		/16
+(WAN & MAN)
+
+LAN
+C	192.0.0.0	223.255.255.255		255.255.255.0		/24
+
+R & D
+D(muticast)(email)	224.0.0.0	239.255.255.255	
+E(reserved)	240.0.0.0	255.255.255.255
+classless inter domian routing
+
+127.0.0.0 to 127.255.255.255 is reserved for loopback address
+
+loopback address
+
+special ip number (127.0.0.1) that is designed for the purpose for the software loopback interface of a machine.
+
+internal testing on local machines
+
+
+multicast
+it allows a single message to be sent to a group of receipients
+
+emailing,teleconferencing
+
+is uses network infrastructure and standards to send messages.
+
+
+subnet mask or netmask
+
+it allows users to identify which part of an ip address is reserved for the network and 
+which part is available for host use.
+cidr users can not tell which part of the address is which ..
+
+it gives users all the information needed to calculate the network  and host 
+
+ip address
+
+
+
+1 byte 8 bit
+
+
+
+netmask   		255 		255		 255 		0
+binary			11111111	11111111	11111111	00000000
+netmask length		8		16		24		
+
+
+
+
+
+gateway
+network point that provides entrance into another network
+
+on the internet
+
+a node or stopping point can be either gateway or a host (end-point) node.
+
+e.g.
+
+192.168 send a file to 10.10
+
+we required a gateway to communicate  between two computers of different network.
